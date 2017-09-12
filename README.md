@@ -5,6 +5,7 @@ Nginx Image for serving Static HTML Apps or Single Page Applications(React,Angul
 ### Benefits:
 - Image Size < 70MB
 - Easy to Use/Understand/Configure
+- SSH access to App Container
 
 You can control nginx configuration used in app container by creating  `nginx.conf` file @ `/home/site` folder
 
