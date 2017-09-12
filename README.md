@@ -2,7 +2,7 @@
 
 Nginx Image for serving Static HTML Apps or Single Page Applications(React,Angular) using Azure App Service Linux
 
-###Benefits:
+### Benefits:
 - Image Size < 70MB
 - Easy to Use/Understand/Configure
 
