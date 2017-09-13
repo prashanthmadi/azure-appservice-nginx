@@ -2,7 +2,7 @@
 
 Nginx Image for serving Static HTML Apps or Single Page Applications(React,Angular) using Azure App Service Linux
 
-[![Azure Deploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fprashanthmadi%2fazure-ghost%2fmaster%2fazuredeploy.json)
+[![Azure Deploy](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprashanthmadi%2Fazure-appservice-nginx%2Fmaster%2Ftemplate.json)
 
 ### Benefits:
 - Image Size < 70MB
