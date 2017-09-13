@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "siteName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of azure web app"
+            }
+        }
+    },
+    "variables": {
+        "hostingPlanName": "[concat(parameters('siteName'), 'serviceplan')]"
+    },
+    "resources": [{
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('siteName')]",
+            "properties": {
+                "siteConfig": {
+                    "appSettings": [{
+                        "name": "DOCKER_CUSTOM_IMAGE_NAME",
+                        "value": "prashanthmadi/azure-appservice-nginx:1.13"
+                    }, {
+                        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                        "value": true
+                    }]
+                },
+                "name": "[parameters('siteName')]",
+                "serverFarmId": "[variables('hostingPlanName')]",
+                "hostingEnvironment": ""
+            },
+            "apiVersion": "2016-03-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[variables('hostingPlanName')]"
+            ]
+        },
+        {
+            "apiVersion": "2016-09-01",
+            "name": "[variables('hostingPlanName')]",
+            "type": "Microsoft.Web/serverfarms",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[variables('hostingPlanName')]",
+                "workerSizeId": "1",
+                "reserved": true,
+                "numberOfWorkers": "1",
+                "hostingEnvironment": ""
+            },
+            "sku": {
+                "Tier": "Standard",
+                "Name": "S1"
+            },
+            "kind": "linux"
+        }
+    ]
+}
