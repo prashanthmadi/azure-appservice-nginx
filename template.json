@@ -16,6 +16,7 @@
             "type": "Microsoft.Web/sites",
             "name": "[parameters('siteName')]",
             "properties": {
+                "httpLogs":{"fileSystem":{"enabled":true,"retentionInMb":100}},
                 "siteConfig": {
                     "appSettings": [{
                         "name": "DOCKER_CUSTOM_IMAGE_NAME",
