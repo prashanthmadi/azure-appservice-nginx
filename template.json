@@ -31,6 +31,7 @@
                     "httpLoggingEnabled": true,
                     "logsDirectorySizeLimit": 36
                 },
+                "httpsOnly": true,
                 "clientAffinityEnabled": false,
                 "name": "[parameters('siteName')]",
                 "serverFarmId": "[variables('hostingPlanName')]",
@@ -52,7 +53,7 @@
                 "workerSizeId": "1",
                 "reserved": true,
                 "numberOfWorkers": "1",
-                "hostingEnvironment": ""            
+                "hostingEnvironment": ""
             },
             "sku": {
                 "Tier": "Standard",
