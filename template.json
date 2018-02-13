@@ -12,21 +12,26 @@
     "variables": {
         "hostingPlanName": "[concat(parameters('siteName'), 'serviceplan')]"
     },
-    "resources": [{
+    "resources": [
+        {
             "type": "Microsoft.Web/sites",
             "name": "[parameters('siteName')]",
             "properties": {
                 "siteConfig": {
-                    "appSettings": [{
-                        "name": "DOCKER_CUSTOM_IMAGE_NAME",
-                        "value": "prashanthmadi/azure-appservice-nginx:1.13"
-                    }, {
-                        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-                        "value": true
-                    }],
+                    "appSettings": [
+                        {
+                            "name": "DOCKER_CUSTOM_IMAGE_NAME",
+                            "value": "prashanthmadi/azure-appservice-nginx:1.13"
+                        },
+                        {
+                            "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                            "value": true
+                        }
+                    ],
                     "httpLoggingEnabled": true,
                     "logsDirectorySizeLimit": 36
                 },
+                "clientAffinityEnabled": false,
                 "name": "[parameters('siteName')]",
                 "serverFarmId": "[variables('hostingPlanName')]",
                 "hostingEnvironment": ""
@@ -47,7 +52,7 @@
                 "workerSizeId": "1",
                 "reserved": true,
                 "numberOfWorkers": "1",
-                "hostingEnvironment": ""
+                "hostingEnvironment": ""            
             },
             "sku": {
                 "Tier": "Standard",
