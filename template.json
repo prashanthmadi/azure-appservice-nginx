@@ -16,8 +16,6 @@
             "type": "Microsoft.Web/sites",
             "name": "[parameters('siteName')]",
             "properties": {
-                "httpLoggingEnabled": true,
-                "logsDirectorySizeLimit": 36,
                 "siteConfig": {
                     "appSettings": [{
                         "name": "DOCKER_CUSTOM_IMAGE_NAME",
@@ -25,7 +23,9 @@
                     }, {
                         "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
                         "value": true
-                    }]
+                    }],
+                    "httpLoggingEnabled": true,
+                    "logsDirectorySizeLimit": 36
                 },
                 "name": "[parameters('siteName')]",
                 "serverFarmId": "[variables('hostingPlanName')]",
