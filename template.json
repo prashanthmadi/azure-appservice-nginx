@@ -31,8 +31,6 @@
                     "httpLoggingEnabled": true,
                     "logsDirectorySizeLimit": 36
                 },
-                "httpsOnly": true,
-                "clientAffinityEnabled": false,
                 "name": "[parameters('siteName')]",
                 "serverFarmId": "[variables('hostingPlanName')]",
                 "hostingEnvironment": ""
